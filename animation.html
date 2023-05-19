@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    :root {
+      --xyz-translate-default: 300%;
+      --xyz-ease-default: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      --xyz-stagger-default: 0.1s;
+    }
+
+    /* 
+    @keyframes animate-amplify {
+      0% {
+        transform: scale(1);
+
+      }
+
+      50% {
+        transform: scale(3) translateX(100px);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .animate-a {
+      display: inline-block;
+      animation: animate-amplify 2s;
+    } */
+
+    .linear-box {
+      /* width: 100px;
+      height: 1px;
+      background: radial-gradient(rgb(5, 223, 216) -24%, #fff 100%); */
+    }
+
+    .border2 {
+      width: 1px;
+      height: 100px;
+      background: linear-gradient(244deg, rgba(255, 255, 255, 0) 0%, rgb(1, 212, 149) 50%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    .border3 {
+      width: 200px;
+      height: 200px;
+      border: 4px solid transparent;
+      position: relative;
+      animation: animateBorder 4s linear infinite;
+    }
+
+    @keyframes animateBorder {
+      0% {
+        border-image: linear-gradient(to right, #e869c4 0%, #5ca4ec 100%);
+        border-image-slice: 1;
+      }
+
+      50% {
+        border-image: linear-gradient(to right, #5ca4ec 0%, #e869c4 100%);
+        border-image-slice: 1;
+      }
+
+      100% {
+        border-image: linear-gradient(to right, #e869c4 0%, #5ca4ec 100%);
+        border-image-slice: 1;
+      }
+    }
+
+    .border4 {
+      clip-path: polygon(17px 182px, 109px 23px, 199px 182px);
+      background-color: pink;
+      width: 199px;
+      height: 182px;
+      /* background: linear-gradient(to bottom, #9b9191, transparent); */
+    }
+
+
+    .border5 {
+      width: 50px;
+      height: 72px;
+      background: url("./sprite-steps.webp") 0 / cover no-repeat;
+      /*深度理解
+            *整个动画1s完成。
+            *这里1s要移动500的像素，这1s要有十步走完，每步是平均下来是0.1s，
+            *每步比上一步多走了72px的位置，这个走是瞬间走到的。
+            *end表示每一步在接近0.1s再去走
+            */
+      animation: play 1s steps(10) 0s infinite;
+    }
+
+    /*定义动画*/
+    @keyframes play {
+
+      /* from {
+        background-position: 0px 0px;
+      }
+
+      to {
+        background-position: -500px 0px;
+      } */
+      to {
+        background-position: -500px;
+      }
+    }
+
+
+    .running-bear {
+      width: 200px;
+      height: 100px;
+      background: url(./bear.png) 0 / cover no-repeat;
+      animation: run 1s steps(8) 0s infinite;
+      /* steps(7) */
+    }
+
+    @keyframes run {
+      to {
+        /* 直觉中最终状态是图片的最右侧紧贴框体的右侧 */
+        background-position: -1600px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div style="margin-top: 20px;">
+    <!-- <span class="animate-a">挖挖达瓦</span> -->
+    <div class="linear-box"></div>
+    <div class="border2"></div>
+    <div class="border3"></div>
+    <div class="border4"></div>
+
+    <div class="border5"></div>
+
+    <div class="running-bear"></div>
+  </div>
+</body>
+<script>
+  // const copyToClipboard = (text) => navigator.clipboard.writeText(text);
+
+  // copyToClipboard("Hello World");
+</script>
+
+</html>
